@@ -382,12 +382,6 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
                 Lq = Lq + [qdp]
                 LTe = LTe + [Te]
                 LDe = LDe + [De]
-                '''A divisão por z e os expoentes (-1) foram eliminados por enquanto
-                   LR = LR + [ (rt.rt_conv_cili(di,h_fld,z)+ \
-                            rt.rt_cond_cili(di,de,lmd_tube,z)+ \
-                            rt.rt_cond_cili(Di,De,flmd,z)+ \
-                            R_rev+ \
-                            ((((rt.rt_conv_cili(De,ctc.hc_f_c(U,De,Te,Ta),z))**(-1))+((rt.rt_crad_cili(De,ctc.hr(eps,Te,Ta),z))**(-1)))**(-1))) ]'''
 
     #Diâmetros externos em milímetros.
     LDe_Disp = [1000*D for D in LDe]
