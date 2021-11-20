@@ -469,7 +469,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
     Disp['Saving \n [$]'] = Saving
     Disp['VPL \n [$]'] = Valor_Pres_Liq
     Disp['VPLAE \n [$]'] = Valor_Pres_LiqAE
-    Disp['Payback \n [$]'] = payback
+    Disp['Payback \n [anos]'] = payback
     Disp['Viável?'] = viabilidade_bool
     #Disp = Disp.sort_values(by=['Custo Total \n [$/m]'])
     #Disp = Disp.iloc[[0]].append(Disp.iloc[1:].sort_values(by=['VPL']))
