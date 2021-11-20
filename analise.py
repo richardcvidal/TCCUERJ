@@ -491,7 +491,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
     Isolamento_Atual['Saving \n [$]'] = 0
     Isolamento_Atual['VPL \n [$]'] = 0
     Isolamento_Atual['VPLAE \n [$]'] = 0
-    Isolamento_Atual['Payback \n [$]'] = 0
+    Isolamento_Atual['Payback \n [anos]'] = 0
     Isolamento_Atual['Viável?'] = np.NaN
     Isolamento_Atual_Lista = [Isolamento_Atual]
     Disp = pd.concat([pd.DataFrame(Isolamento_Atual_Lista), Disp], ignore_index=True)
