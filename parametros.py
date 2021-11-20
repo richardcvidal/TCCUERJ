@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import iba
+import analise
 import ctc
 import wtr
 
@@ -48,5 +48,5 @@ TF = 6.2 + 273.15
 (N, CEE, eta, COP, n, i, tm) = (1752, 0.7, 0.91, 5.372, 15, 0.08, 0.01)
 
 if True:
-    result = iba.iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N, CEE, eta, COP, n, i, tm, TF)
+    result = analise.iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N, CEE, eta, COP, n, i, tm, TF)
     result.to_excel("resultado_a.xlsx", sheet_name='MERCK', index = False, startcol = 0, freeze_panes = (2,2))

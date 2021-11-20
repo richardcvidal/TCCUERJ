@@ -3,11 +3,6 @@
 import numpy as np
 
 # =============================================================================
-# Propriedades do ar a uma atmosfera. Referência [001] - F. J. McQuillan, J.R. 
-# Culham and M. M. Yovanovich (1984) - Properties of Dry Air at One Atmosphere.
-# =============================================================================
-
-# =============================================================================
 # Massa específica. Input em K, output em kg/m^3.
 # =============================================================================
 
@@ -22,9 +17,7 @@ def rho(T):
     return(RHO)
 
 # =============================================================================
-# Viscosidade dinâmica. Input em K, output em (N.s)/m^2. Referência [002] -
-# Reid, Robert C., Sherwood, Thomas K., (1966) - The Properties of Gases and
-# Liquids, McGraw-Hill.
+# Viscosidade dinâmica. Input em K, output em (N.s)/m^2.
 # =============================================================================
 
 def mi(T):
@@ -38,9 +31,7 @@ def mi(T):
     return(MI)
     
 # =============================================================================
-# Condutividade térmica. Input em K, outpit em W/(m.K). Referência [002] -
-# Reid, RobertC., Sherwood, ThomasK., (1966) - The Properties of Gases and
-# Liquids, McGraw-Hill.
+# Condutividade térmica. Input em K, outpit em W/(m.K).
 # =============================================================================
 
 def lamed(T):

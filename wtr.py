@@ -3,10 +3,6 @@
 import math
 import numpy as np
 
-# =============================================================================
-# Propriedades da Água Líquida. Referências [017], [019], [020], [021] e [022].
-# =============================================================================
-
 #Massa específica. Entrada em K, saída em kg/m^3.
 def rho(T):
     

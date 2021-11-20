@@ -1,15 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-
-# =============================================================================
-# Funções de analogia de circuitos elétricos. Referências [016] - N-550 -
-# Projeto de Isolamento Térmico a Alta Temperatura, Anexo E; e [017] -
-# Incropera - Fundamentals of Heat & Mass Transfer - 8th Edition.
-# =============================================================================
-
-
-
 # =============================================================================
 # Resistências térmicas em cilindros.
 # =============================================================================
