@@ -53,9 +53,9 @@ def fesp_q(pltObj, LE, LQ):
         LQ_Espuma.append(LQ[i])
     pltObj.plot(LE, LQ_Aerogel, "b.-", label = "Aerogel")
     pltObj.plot(LE, LQ_Espuma, "r.-", label = "Espuma")
-    pltObj.title('Espessura x Taxa de Calor')
+    pltObj.title('Espessura x Taxa de Transferência de Calor')
     pltObj.xlabel('Espessura (pol)')
-    pltObj.ylabel('Taxa de Calor (W)')
+    pltObj.ylabel('Taxa de Transferência de Calor (W)')
     pltObj.legend() #exibir a legenda
     pltObj.show()
 
@@ -84,9 +84,9 @@ def fTe_q(pltObj, Ts, q, eixo_x):
     else:
         pass
 
-    pltObj.title('Temperatura x Taxa de Calor')
-    pltObj.xlabel('Temperatura (°C)')
-    pltObj.ylabel('Taxa de Calor (W)')
+    pltObj.title('Temperatura na Face Externa x Taxa de Transferência de Calor')
+    pltObj.xlabel('Temperatura na Face Externa (°C)')
+    pltObj.ylabel('Taxa de Transferência de Calor (W)')
     pltObj.ticklabel_format(useOffset=False, style='plain')
     pltObj.legend()
     pltObj.show()
@@ -113,8 +113,8 @@ def fTe_VPL(pltObj, Ts, VPL, eixo_x):
     else:
         pass
 
-    pltObj.title('Temperatura x VPL')
-    pltObj.xlabel('Temperatura (°C)')
+    pltObj.title('Temperatura na Face Externa x VPL')
+    pltObj.xlabel('Temperatura na Face Externa (°C)')
     pltObj.ylabel('VPL (R$)')
     pltObj.ticklabel_format(useOffset=False, style='plain')
     pltObj.legend()
@@ -393,7 +393,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
     LVT = list(map(lambda x: Ti - (Ta - (Ta - Ti)*np.exp(-1/(m*c*x))),LR))
 
     LTSK = list(map(lambda x: Ti - x, LVT))
-    LLMTD = [((x - Ta) - (Ti - Ta))/(np.log((x - Ta)/(Ti - Ta))) for x in LTSK]
+    LLMTD = [((Ta - x) - (Ta - Ti))/(np.log((Ta - x)/(Ta - Ti))) for x in LTSK]
     ZTR = zip(LLMTD, LR)
     Lq = [x[0]/(x[1]) for x in ZTR]
 
@@ -573,7 +573,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
                             ((rt.rt_crad_cili(De_aerogel,ctc.hr(eps,t,Ta),z))**(-1)))**(-1)))]
     LVT_aerogel = list(map(lambda x: Ti - (Ta - (Ta - Ti)*np.exp(-1/(m*c*x))),R_aerogel))
     LTSK_aerogel = list(map(lambda x: Ti - x, LVT_aerogel))
-    LLMTD_aerogel = [((x - Ta) - (Ti - Ta))/(np.log((x - Ta)/(Ti - Ta))) for x in LTSK_aerogel]
+    LLMTD_aerogel = [((Ta - x) - (Ta - Ti))/(np.log((Ta - x)/(Ta - Ti))) for x in LTSK_aerogel]
     ZTR_aerogel = zip(LLMTD_aerogel, R_aerogel)
     q_aerogel = [x[0]/(x[1]) for x in ZTR_aerogel]
     LCE_aerogel = [CE(abs(q), N, CEE, eta, COP) for q in q_aerogel]
@@ -602,7 +602,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
                             ((rt.rt_crad_cili(De_espuma,ctc.hr(eps,t,Ta),z))**(-1)))**(-1)))]
     LVT_espuma = list(map(lambda x: Ti - (Ta - (Ta - Ti)*np.exp(-1/(m*c*x))),R_espuma))
     LTSK_espuma = list(map(lambda x: Ti - x, LVT_espuma))
-    LLMTD_espuma = [((x - Ta) - (Ti - Ta))/(np.log((x - Ta)/(Ti - Ta))) for x in LTSK_espuma]
+    LLMTD_espuma = [((Ta - x) - (Ta - Ti))/(np.log((Ta - x)/(Ta - Ti))) for x in LTSK_espuma]
     ZTR_espuma = zip(LLMTD_espuma, R_espuma)
     q_espuma = [x[0]/(x[1]) for x in ZTR_espuma]
     LCE_espuma = [CE(abs(q), N, CEE, eta, COP) for q in q_espuma]
@@ -638,7 +638,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
                             ((rt.rt_crad_cili(De_aerogel,ctc.hr(eps,t,Ta),z))**(-1)))**(-1)))]
     LVT_aerogel = list(map(lambda x: Ti - (Ta - (Ta - Ti)*np.exp(-1/(m*c*x))),R_aerogel))
     LTSK_aerogel = list(map(lambda x: Ti - x, LVT))
-    LLMTD_aerogel = [((x - Ta) - (Ti - Ta))/(np.log((x - Ta)/(Ti - Ta))) for x in LTSK_aerogel]
+    LLMTD_aerogel = [((Ta - x) - (Ta - Ti))/(np.log((Ta - x)/(Ta - Ti))) for x in LTSK_aerogel]
     ZTR_aerogel = zip(LLMTD_aerogel, R_aerogel)
     q_aerogel = [x[0]/(x[1]) for x in ZTR_aerogel]
     LCE_aerogel = [CE(abs(q), N, CEE, eta, COP) for q in q_aerogel]
@@ -666,7 +666,7 @@ def iso_tubes(di, de, Ti, Ta, h_fld, lmd_tube, U, H, z, eps, m, c, R_rev, RH, N,
                             ((rt.rt_crad_cili(De_espuma,ctc.hr(eps,t,Ta),z))**(-1)))**(-1)))]
     LVT_espuma = list(map(lambda x: Ti - (Ta - (Ta - Ti)*np.exp(-1/(m*c*x))),R_espuma))
     LTSK_espuma = list(map(lambda x: Ti - x, LVT))
-    LLMTD_espuma = [((x - Ta) - (Ti - Ta))/(np.log((x - Ta)/(Ti - Ta))) for x in LTSK_espuma]
+    LLMTD_espuma = [((Ta - x) - (Ta - Ti))/(np.log((Ta - x)/(Ta - Ti))) for x in LTSK_espuma]
     ZTR_espuma = zip(LLMTD_espuma, R_espuma)
     q_espuma = [x[0]/(x[1]) for x in ZTR_espuma]
     LCE_espuma = [CE(abs(q), N, CEE, eta, COP) for q in q_espuma]
